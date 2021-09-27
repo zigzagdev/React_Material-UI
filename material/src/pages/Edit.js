@@ -30,7 +30,7 @@ export default function Notes(){
     const [notes,setNotes] = useState([]);
 
     useEffect(()=> {
-        fetch('https://jsonplaceholder.typicode.com/posts')
+        fetch('https://jsonplaceholder.typicode.com/posts/e.id')
             .then(res => res.json())
             .then(data => setNotes(data))
     },[])
@@ -39,25 +39,23 @@ export default function Notes(){
         <div>
             {notes.map(note => (
                 <p key={note.id}>{note.title}
-          <Container>
-            <Grid container spacing={6}>
-                <Grid item xs={12} sm={3} md={6} >
-                    <Paper key={note.title}>
-                      <Button
-                        style={style2}
-                        variant="contained"
-                        color="primary"
-                        component={Link}
-                        to={"/Edit/"+note.id}
-                      >Jump</Button>
-                    </Paper>
-                </Grid>
-            </Grid>
-          </Container>
-          </p>
-        ))}
+                    <Container>
+                        <Grid container spacing={6}>
+                            <Grid item xs={12} sm={3} md={6} >
+                                <Paper key={note.title}>
+                                    <Button
+                                        style={style2}
+                                        variant="contained"
+                                        color="primary"
+                                        component={Link}
+                                        to="/Edit"
+                                    >Jump</Button>
+                                </Paper>
+                            </Grid>
+                        </Grid>
+                    </Container>
+                </p>
+            ))}
         </div>
     )
 }
-
-// Map機能自体叩かれている要素の数だけreturn内の処理が行われる為、書く工数の反映として勝手にforeachが回っているイメージとなる。_c
