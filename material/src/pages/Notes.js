@@ -48,7 +48,7 @@ export default function Notes(){
                         variant="contained"
                         color="primary"
                         component={Link}
-                        to={"/Edit/"+note.id}
+                        to={note.id}
                       >Jump</Button>
                     </Paper>
                 </Grid>
@@ -60,4 +60,5 @@ export default function Notes(){
     )
 }
 
-// Map機能自体叩かれている要素の数だけreturn内の処理が行われる為、書く工数の反映として勝手にforeachが回っているイメージとなる。_c
+// Map機能自体叩かれている要素の数だけreturn内の処理が行われる為、書く工数の反映として勝手にforeachが回っているイメージとなる。
+// また、useEffect()でfetchを利用してAPIを取得する時は基本的に全体(Index)での利用を取得とすることが多い。
