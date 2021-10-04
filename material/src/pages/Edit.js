@@ -41,3 +41,5 @@ export default function Notes(){
         </div>
     )
 }
+
+//個別(idを含んだ)ごとのpathを含んだページへの遷移はpropsでの引き渡しが多くなるのだろうか・・・・(課題点として残しておく)
