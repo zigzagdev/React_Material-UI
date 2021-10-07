@@ -30,15 +30,30 @@ export default function Notes(){
     const [notes,setNotes] = useState([]);
 
     useEffect(()=> {
-        fetch('https://jsonplaceholder.typicode.com/posts/1')
+        fetch('https://jsonplaceholder.typicode.com/posts/${id}')
             .then(res => res.json())
             .then(data => setNotes(data))
     },[])
 
     return (
-        <div>
-
-        </div>
+        <p key={note.id}>{note.title}
+            <Container>
+                <Grid container spacing={6}>
+                    <Grid item md={12}>
+                        <Paper key={note.title}>
+                            <Button
+                                style={style2}
+                                variant="contained"
+                                color="primary"
+                                component={Link}
+                                to='/Edit/{note.id}'
+                            >Jump
+                            </Button>
+                        </Paper>
+                    </Grid>
+                </Grid>
+            </Container>
+        </p>
     )
 }
 

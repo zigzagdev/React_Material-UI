@@ -2,7 +2,7 @@ import React, {useEffect, useState} from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import {Container} from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useHistory} from "react-router-dom";
 import {Button} from "@material-ui/core";
 
 
@@ -28,6 +28,7 @@ const style2 = {
 
 export default function Notes(){
     const [notes,setNotes] = useState([]);
+    const history = useHistory();
 
     useEffect(()=> {
         fetch('https://jsonplaceholder.typicode.com/posts')
@@ -37,19 +38,19 @@ export default function Notes(){
 
     return (
         <div>
-            {notes.map(note => (
-                <p key={note.id}>{note.title}
+          {notes.map(note => (
+        <p key={note.id}>{note.title}
           <Container>
             <Grid container spacing={6}>
-                <Grid item xs={12} sm={3} md={6} >
+                <Grid item md={12}>
                     <Paper key={note.title}>
                       <Button
                         style={style2}
                         variant="contained"
                         color="primary"
-                        component={Link}
-                        to={note.id}
-                      >Jump</Button>
+                        onClick={history.push('https://jsonplaceholder.typicode.com/posts/1')}
+                      >Jump
+                      </Button>
                     </Paper>
                 </Grid>
             </Grid>
