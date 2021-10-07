@@ -8,7 +8,7 @@ function App() {
   const history = createBrowserHistory();
   return (
     <Router history={history}>
-      <Switch>
+      {/*<Switch>*/}
         <Route exact path="/">
           <Notes />
         </Route>
@@ -18,7 +18,7 @@ function App() {
         <Route path="/edit">
           <Edit />
         </Route>
-      </Switch>
+      {/*</Switch>*/}
     </Router>
   );
 }
