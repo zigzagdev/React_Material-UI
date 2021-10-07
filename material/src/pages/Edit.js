@@ -39,7 +39,7 @@ export default function Edit() {
   }, []);
 
   return (
-    <p key={note.id}>
+    <div key={note.id}>
       {note.title}
       <Container>
         <Grid container spacing={6}>
@@ -52,7 +52,7 @@ export default function Edit() {
           </Grid>
         </Grid>
       </Container>
-    </p>
+    </div>
   );
 }
 
