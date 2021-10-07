@@ -26,12 +26,15 @@ const style2 = {
 };
 
 export default function Edit() {
-  const [notes, setNotes] = useState([]);
+  const [note, setNote] = useState([]);
 
   useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/posts/${id}")
+    /** URLパラメータから取得したId */
+    const id = new URLSearchParams(history.location.search).get("id");
+
+    fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
       .then((res) => res.json())
-      .then((data) => setNotes(data));
+      .then((data) => setNote(data));
   }, []);
 
   return (

@@ -48,7 +48,7 @@ export default function Notes() {
                     style={style2}
                     variant="contained"
                     color="primary"
-                    onClick={history.push("/edit")}
+                    onClick={history.push(`/edit?id=${1}`)}
                   >
                     Jump
                   </Button>
