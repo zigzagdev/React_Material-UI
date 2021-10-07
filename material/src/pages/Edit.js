@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
 import { Container } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 
 const style = {
@@ -27,6 +27,7 @@ const style2 = {
 
 export default function Edit() {
   const [note, setNote] = useState([]);
+  const history = useHistory();
 
   useEffect(() => {
     /** URLパラメータから取得したId */
@@ -44,13 +45,7 @@ export default function Edit() {
         <Grid container spacing={6}>
           <Grid item md={12}>
             <Paper key={note.title}>
-              <Button
-                style={style2}
-                variant="contained"
-                color="primary"
-                component={Link}
-                to="/Edit/{note.id}"
-              >
+              <Button style={style2} variant="contained" color="primary">
                 Jump
               </Button>
             </Paper>
