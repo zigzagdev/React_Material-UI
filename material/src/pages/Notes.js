@@ -48,10 +48,14 @@ export default function Notes() {
                     style={style2}
                     variant="contained"
                     color="primary"
-                    onClick={history.push(`/edit?id=${1}`)}
+                    onClick={() => history.push(`/edit?id=${1}`)}
                   >
                     Jump
                   </Button>
+                  {/** このログを見ると「テスト」の文字列が返ってくる */}
+                  <TestButton onClick={(value) => console.log(value)}>
+                    テスト
+                  </TestButton>
                 </Paper>
               </Grid>
             </Grid>
@@ -61,6 +65,13 @@ export default function Notes() {
     </div>
   );
 }
+
+/** コールバック説明用のテストボタン */
+const TestButton = (props) => {
+  return (
+    <Button props={() => props.onClick("テスト")}>{props.children}</Button>
+  );
+};
 
 // Map機能自体叩かれている要素の数だけreturn内の処理が行われる為、書く工数の反映として勝手にforeachが回っているイメージとなる。
 // また、useEffect()でfetchを利用してAPIを取得する時は基本的に全体(Index)での利用を取得とすることが多い。
