@@ -45,8 +45,8 @@ export default function Edit() {
         <Grid container spacing={6}>
           <Grid item md={12}>
             <Paper key={note.title}>
-              <Button style={style2} variant="contained" color="primary">
-                Jump
+              <Button style={style2} variant="contained" color="primary" onClick={() =>  history.push(`/`)}>
+                Return
               </Button>
             </Paper>
           </Grid>
@@ -56,5 +56,5 @@ export default function Edit() {
   );
 }
 
-//個別(idを含んだ)ごとのpathを含んだページへの遷移はpropsでの引き渡しが多くなるのだろうか・・・・(課題点として残しておく)
+
 //l.36のidを{note.id}にした場合,fetchで取得しているAPIの値(id)を選択出来ず,idを伴った遷移が出来かねない。
