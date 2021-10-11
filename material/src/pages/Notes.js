@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
-import {Box, Container} from "@material-ui/core";
+import {Box, Container, Typography} from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { Button } from "@material-ui/core";
 import {Card} from "@material-ui/core";
@@ -10,12 +9,9 @@ import {Card} from "@material-ui/core";
 const style ={
   display: 'flex',
   flexWrap:'wrap',
-  alignItems: 'center',
   justifyContent:'space-between',
-  width:'100',
   marginLeft: 7,
-  borderRadius: '5px',
-  padding:'25px',
+  paddingTop:25,
   cursor:'pointer',
 
 }
@@ -23,27 +19,28 @@ const style ={
 
 const style2 = {
   textAlign: 'center',
-  alignItems: 'center',
-  flexWrap:'wrap',
-  color: 'red',
-  font:40,
-  display: 'flex',
-  marginLeft:7,
+  marginLeft:20,
+  marginRight: 20,
   width: '18rem',
   height: '18rem',
-
+  marginTop: 40,
 }
 
 
 const style3 = {
-  minWidth: 16,
   lineHeight: 3,
-  borderRadius: 8,
-  border: "none",
   color: "#fff",
   background: "#639",
-
+  display: 'block',
+  margin: 'auto',
 };
+
+const style4 ={
+  marginTop: 20,
+  color: 'red',
+
+}
+
 
 export default function Notes() {
   const [notes, setNotes] = useState([]);
@@ -64,11 +61,11 @@ export default function Notes() {
                   {/*<TestButton onClick={(value) => console.log(value)}>*/}
                   {/*  {note.title}*/}
                   {/*</TestButton>*/}
+                  <Typography style={style4}>
                   {note.title}
+                  </Typography>
                   <Button
                     style={style3}
-                    variant="contained"
-                    color="primary"
                     onClick={() => history.push(`/edit?id=${note.id}`)}
                   >
                     Jump
