@@ -31,7 +31,7 @@ const style3 = {
   color: "#fff",
   background: "#639",
   display: "block",
-  margin: "0 auto",
+  margin: "0 auto 40px",
 };
 
 const style4 = {
